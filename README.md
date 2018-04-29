@@ -5,16 +5,27 @@ Massive NSE (Nmap Scripting Engine) AutoSploit and AutoScanner. The Nmap Scripti
 ![screen](https://raw.githubusercontent.com/m4ll0k/AutoNSE/master/screen.png)
 
 ## Installation
-```
+```bash
 $ git clone https://github.com/m4ll0k/AutoNSE.git
 $ cd AutoNSE 
 $ bash autonse.sh
 ```
 
-## Exmaples
+## Examples
 
-```
+```bash
 $ bash autonse.sh
 ```
 ![screen1](https://raw.githubusercontent.com/m4ll0k/AutoNSE/master/screen1.png)
 ![screen2](https://raw.githubusercontent.com/m4ll0k/AutoNSE/master/screen2.png)
+
+## Docker
+
+You can deploy [AutoNSE](https://github.com/m4ll0k/AutoNSE) using the provided `Dockerfile` locally or remotly.
+The image is Alpine based, meaning it's very light and fast.
+
+```bash
+$ git clone https://github.com/m4ll0k/AutoNSE.git
+$ docker build -t autonse ./AutoNSE
+$ docker run -it --name autonse
+```
