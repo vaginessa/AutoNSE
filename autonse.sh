@@ -22,7 +22,7 @@ version='v0.1.0'
 repo='https://github.com/m4ll0k'
 description='AutoNSE - Massive NSE AutoSploit/AutoScanner'
 # best port
-exec_command='nmap -Pn --open -p 21,22,23,25,53,80,443,455,110,123,1521,389,143,3306,27017,5984'
+exec_command='nmap -v -Pn --open -p 21,22,23,25,53,80,443,455,110,123,1521,389,143,3306,27017,5984'
 
 function banner() {
 	clear
@@ -98,7 +98,7 @@ function scan_ftp() {
 	echo -e $b"[*]$e Loading ftp nse scripts..."
 	search_nse 'ftp'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 21 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 21 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -109,7 +109,7 @@ function scan_ssh() {
 	echo -e $b"[*]$e Loading ssh nse scripts..."
 	search_nse 'ssh'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 22 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 22 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -120,7 +120,7 @@ function scan_telnet() {
 	echo -e $b"[*]$e Loading telnet nse scripts..."
 	search_nse 'telnet'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 23 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 23 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -131,7 +131,7 @@ function scan_smtp() {
 	echo -e $b"[*]$e Loading smtp nse scripts..."
 	search_nse 'smtp'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 25 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 25 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -142,7 +142,7 @@ function scan_dns() {
 	echo -e $b"[*]$e Loading dns nse scripts..."
 	search_nse 'dns'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 53 $output --script=$nse --script-args dns-brute.threads=5,dns-brute.hostlist=wordlist.txt $ip "
+	exec_command="nmap -v -p 53 $output --script=$nse --script-args dns-brute.threads=5,dns-brute.hostlist=wordlist.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -153,7 +153,7 @@ function scan_http() {
 	echo -e $b"[*]$e Loading http nse scripts..."
 	search_nse 'http'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 80 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 80 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -164,7 +164,7 @@ function scan_ssl() {
 	echo -e $b"[*]$e Loading https/ssl nse scripts..."
 	search_nse 'ssl'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 443 $output --script=$nse $ip "
+	exec_command="nmap -v -p 443 $output --script=$nse $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -175,7 +175,7 @@ function scan_smb() {
 	echo -e $b"[*]$e Loading smb nse scripts..."
 	search_nse 'smb'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 445 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 445 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -186,7 +186,7 @@ function scan_pop() {
 	echo -e $b"[*]$e Loading pop3 nse scripts..."
 	search_nse 'pop3'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 110 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 110 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -197,7 +197,7 @@ function scan_ntp() {
 	echo -e $b"[*]$e Loading ntp nse scripts..."
 	search_nse 'ntp'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 123 $output --script=$nse $ip "
+	exec_command="nmap -v -p 123 $output --script=$nse $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -208,7 +208,7 @@ function scan_imap() {
 	echo -e $b"[*]$e Loading imap nse scripts..."
 	search_nse 'imap'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 143 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 143 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -219,7 +219,7 @@ function scan_mysql() {
 	echo -e $b"[*]$e Loading mysql nse scripts..."
 	search_nse 'mysql'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 3306 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 3306 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -230,7 +230,7 @@ function scan_mongodb() {
 	echo -e $b"[*]$e Loading mongodb nse scripts..."
 	search_nse 'mongodb'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 27017 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 27017 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -241,7 +241,7 @@ function scan_couchdb() {
 	echo -e $b"[*]$e Loading couchdb nse scripts..."
 	search_nse 'couchdb'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 5984 $output --script=$nse $ip "
+	exec_command="nmap -v -p 5984 $output --script=$nse $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -252,7 +252,7 @@ function scan_ldap() {
 	echo -e $b"[*]$e Loading ldap nse scripts..."
 	search_nse 'ldap'
 	echo -e $b"[+]$e Found $(echo $nse|tr ',' '\n'|wc -l) scripts..."
-	exec_command="nmap -p 389 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
+	exec_command="nmap -v -p 389 $output --script=$nse --script-args userdb=user.txt,passdb=pass.txt $ip "
 	echo -e $y"[i]$e Scanning... Please wait..."
 	echo -e $w"----------------------------------------------"$e
 	$exec_command
@@ -262,8 +262,8 @@ function scanner() {
 	ip=$1;port=$2;output=$3
 	if [ $port == "21" ]; then
 		scan_ftp "$ip" "$output"
-	fi 
-	if [ $port == "22" ]; then 
+	fi
+	if [ $port == "22" ]; then
 		scan_ssh "$ip" "$output"
 	fi
 	if [ $port == "23" ]; then
@@ -271,7 +271,7 @@ function scanner() {
 	fi
 	if [ $port == "25" ]; then
 		scan_smtp "$ip" "$output"
-	fi 
+	fi
 	if [ $port == "53" ]; then
 		scan_dns "$ip" "$output"
 	fi
