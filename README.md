@@ -23,9 +23,16 @@ $ bash autonse.sh
 
 You can deploy [AutoNSE](https://github.com/m4ll0k/AutoNSE) using the provided `Dockerfile` locally or remotly.  
 The image is Alpine based, meaning it's very light and fast.
+A `/loot` volume is created on launch to easily save nmap's output
 
 ```bash
 $ git clone https://github.com/m4ll0k/AutoNSE.git
 $ docker build -t autonse ./AutoNSE
 $ docker run -it --name autonse
+
+[...]
+
+AutoNSE@Sploit: 2
+   [+] Output path >> /loot
+
 ```
