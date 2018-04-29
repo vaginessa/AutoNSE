@@ -12,7 +12,7 @@ RUN apk --update add nmap \
                      util-linux \
                      ncurses
 
-RUN git clone https://github.com/m4ll0k/AutoNSE.gitt
+RUN git clone https://github.com/m4ll0k/AutoNSE.git
 WORKDIR AutoNSE
 VOLUME "/loot/"
 ENTRYPOINT ["bash", "autonse.sh"]
