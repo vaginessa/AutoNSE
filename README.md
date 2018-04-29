@@ -21,7 +21,7 @@ $ bash autonse.sh
 
 ## Docker
 
-You can deploy [AutoNSE](https://github.com/m4ll0k/AutoNSE) using the provided `Dockerfile` locally or remotly.
+You can deploy [AutoNSE](https://github.com/m4ll0k/AutoNSE) using the provided `Dockerfile` locally or remotly.  
 The image is Alpine based, meaning it's very light and fast.
 
 ```bash
