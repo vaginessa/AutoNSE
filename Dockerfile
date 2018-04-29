@@ -5,7 +5,6 @@ LABEL com.creator="Momo Outaadi (m4ll0k)"
 LABEL com.dockerfileauthor="khast3x"
 LABEL com.description="AutoNSE - Massive NSE AutoSploit/AutoScanner"
 
-
 RUN apk --update add nmap \
                      nmap-scripts \
                      git \
@@ -13,8 +12,7 @@ RUN apk --update add nmap \
                      util-linux \
                      ncurses
 
-RUN git clone https://github.com/khast3x/AutoNSE.git
+RUN git clone https://github.com/m4ll0k/AutoNSE.gitt
 WORKDIR AutoNSE
 VOLUME "/loot/"
-#ENTRYPOINT ["bash", "autonse.sh"]
-ENTRYPOINT ["bash"]
+ENTRYPOINT ["bash", "autonse.sh"]
